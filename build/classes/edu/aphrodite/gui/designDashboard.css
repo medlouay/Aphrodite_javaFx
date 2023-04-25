@@ -1,0 +1,127 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 15, 2023, 7:57:55 PM
+    Author     : dhiaa
+*/
+
+.top-form{
+    -fx-background-color:#fff;
+    -fx-border-color:#000;
+    -fx-border-width:.2pc .2px .4px .2px;
+}
+
+.close{
+    -fx-background-color:transparent;
+    -fx-cursor:hand;
+}
+
+.close:hover{
+    -fx-background-color:#e74141;
+
+}
+
+.minimize{
+    -fx-background-color:transparent;
+    -fx-cursor:hand;
+
+}
+.minimize:hover{
+    -fx-background-color:#dadada;
+}
+.btn {
+    -fx-background-color: #8097db;
+    -fx-background-radius: 5;
+    -fx-border-color: #16525e;
+    -fx-border-radius: 5;
+    -fx-text-fill: #fff;
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+    -fx-padding: 5 10;
+}
+
+.btn:hover {
+    -fx-background-color: #16525e;
+    -fx-border-color: #8097db;
+}
+
+.btn:pressed {
+    -fx-background-color: #fff;
+    -fx-text-fill: #16525e;
+}
+
+.nav-form{
+    -fx-background-color: linear-gradient(to top right,#8097db,#16525e);
+}
+
+.nav-btn{
+    -fx-background-color:transparent;
+    -fx-cursor:hand;
+    -fx-text-fill:#fff;
+    -fx-font-size:14px;
+    -fx-alignment: CENTER_LEFT;
+
+}
+
+.nav-btn:hover{
+    -fx-background-color:linear-gradient(to top right,#8097db,#16525e);
+}
+#soldebtn {
+    -fx-cursor:hand;
+    -fx-font-size:14px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-border-color: #fff;
+    -fx-background-color:linear-gradient(to top right,#8097db,#16525e);
+    -fx-text-fill: #fff;
+}
+#soldebtn:hover {
+   -fx-border-color: darkgreen; 
+}
+.signout{
+    -fx-background-color:#ae2d3c;
+    -fx-cursor:hand;
+    -fx-background-radius:15px;
+
+}
+#tabFormation {
+    -fx-border-color: #fff;
+    -fx-border-width:2px;
+}
+.signout:hover{
+    -fx-background-color:#d62651;
+
+}
+
+.bg-white{
+    -fx-background-color:#fff;
+    -fx-effect:dropshadow(three-pass-box ,rgba(0,0,0,.3),8,0,0,0);
+    -fx-background-radius:8px;
+
+}
+
+
+
+.card1{
+    -fx-background-color:linear-gradient(to top right,#cf2929,#1d0609);
+    -fx-background-radius:0px 10px 10px 0px;
+    -fx-effect:dropshadow(three-pass-box ,rgba(0,0,0,.5),5,0,0,0);
+}
+
+
+.card2{
+    -fx-background-color:linear-gradient(to top right,#be8b54,#602f0c);
+    -fx-background-radius:0px 10px 10px 0px;
+    -fx-effect:dropshadow(three-pass-box ,rgba(0,0,0,.5),5,0,0,0);
+}
+
+
+.card3{
+    -fx-background-color:linear-gradient(to top right,#5464be,#0c0c60);
+    -fx-background-radius:0px 10px 10px 0px;
+    -fx-effect:dropshadow(three-pass-box ,rgba(0,0,0,.5),5,0,0,0);
+}
+
+
