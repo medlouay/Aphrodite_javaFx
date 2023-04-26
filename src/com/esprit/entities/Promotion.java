@@ -15,13 +15,19 @@ public class Promotion {
 
     private int id;
 
-    private Date startDate;
+   // private LocalDate startDate;
+       private Date startDate;
+
 
     private Date endDate;
 
     private int percentage;
 
     // Constructor
+    
+    public Promotion() {
+    }
+
     public Promotion(Date startDate, Date endDate, int percentage) {
         this.startDate = startDate;
         this.endDate = endDate;

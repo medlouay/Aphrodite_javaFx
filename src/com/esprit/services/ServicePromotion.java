@@ -32,8 +32,8 @@ public class ServicePromotion implements IService<Promotion> {
         String req = "INSERT INTO promotion (date_debut_at, date_fin_at, pourcentage) VALUES (?,?,?)";
         try {
             PreparedStatement pst = cnx.prepareStatement(req);
-           pst.setDate(1, new java.sql.Date(t.getStartDate().getTime()));
-           pst.setDate(2, new java.sql.Date(t.getEndDate().getTime()));
+           pst.setObject(1, t.getStartDate());
+           pst.setObject(2, t.getEndDate());
         
 
             pst.setInt(3, t.getPercentage());
@@ -43,6 +43,10 @@ public class ServicePromotion implements IService<Promotion> {
             System.out.println(ex.getMessage());
         }
     }
+    
+    
+    
+    
 
     @Override
     public void modifier(Promotion t) {
@@ -95,6 +99,28 @@ public class ServicePromotion implements IService<Promotion> {
         }
 
         return list;
+    }
+    public Promotion findOne(int id) {
+        Promotion prom = new Promotion();
+
+        String req = "SELECT * FROM promotion WHERE id=?";
+        try {
+            PreparedStatement pst = cnx.prepareStatement(req);
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                
+                prom.setStartDate( rs.getDate("date_debut_at"));
+                prom.setEndDate(rs.getDate("date_fin_at"));
+                prom.setPercentage(rs.getInt("pourcentage"));
+
+                
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return prom;
     }
 
    

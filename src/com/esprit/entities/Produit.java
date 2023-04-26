@@ -12,7 +12,7 @@ package com.esprit.entities;
 public class Produit {
     private int id;
 
-    private Promotion promotion;
+    
 
     private String nom;
 
@@ -29,28 +29,14 @@ public class Produit {
     private String lat;
 
     private String lon;
+    private int promoId;
 
     public Produit(int id) {
         this.id = id;
     }
-    
-    
 
-    // Constructor
-    public Produit(String nom, int quantite, double prix, String categorie, String description, String image, String lat, String lon) {
-        this.nom = nom;
-        this.quantite = quantite;
-        this.prix = prix;
-        this.categorie = categorie;
-        this.description = description;
-        this.image = image;
-        this.lat = lat;
-        this.lon = lon;
-    }
-
-    public Produit(int id, Promotion promotion, String nom, int quantite, double prix, String categorie, String description, String image, String lat, String lon) {
+    public Produit(int id, String nom, int quantite, double prix, String categorie, String description, String image, String lat, String lon, int promoId) {
         this.id = id;
-        this.promotion = promotion;
         this.nom = nom;
         this.quantite = quantite;
         this.prix = prix;
@@ -59,7 +45,35 @@ public class Produit {
         this.image = image;
         this.lat = lat;
         this.lon = lon;
+        this.promoId = promoId;
     }
+
+    public Produit() {
+    }
+
+    public Produit(String nom, int quantite, double prix, String categorie, String description, String image, String lat, String lon, int promoId) {
+        this.nom = nom;
+        this.quantite = quantite;
+        this.prix = prix;
+        this.categorie = categorie;
+        this.description = description;
+        this.image = image;
+        this.lat = lat;
+        this.lon = lon;
+        this.promoId = promoId;
+    }
+
+    public int getPromoId() {
+        return promoId;
+    }
+
+    public void setPromoId(int promoId) {
+        this.promoId = promoId;
+    }
+    
+    
+
+   
     
 
     // Getters and Setters
@@ -71,14 +85,7 @@ public class Produit {
         this.id = id;
     }
 
-    public Promotion getPromotion() {
-        return promotion;
-    }
-
-    public void setPromotion(Promotion promotion) {
-        this.promotion = promotion;
-    }
-
+    
     public String getNom() {
         return nom;
     }
@@ -105,8 +112,10 @@ public class Produit {
 
     @Override
     public String toString() {
-        return "Produit{" + "id=" + id + ", promotion=" + promotion + ", nom=" + nom + ", quantite=" + quantite + ", prix=" + prix + ", categorie=" + categorie + ", description=" + description + ", image=" + image + ", lat=" + lat + ", lon=" + lon + '}';
+        return "Produit{" + "id=" + id + ", nom=" + nom + ", quantite=" + quantite + ", prix=" + prix + ", categorie=" + categorie + ", description=" + description + ", image=" + image + ", lat=" + lat + ", lon=" + lon + ", promoId=" + promoId + '}';
     }
+
+   
     
 
     public String getCategorie() {

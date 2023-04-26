@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
+
 package gui;
 
 import java.net.URL;
@@ -65,6 +62,8 @@ import javafx.util.Duration;
 //import entities.commande;
 //import gui.PanierController;
 import com.esprit.entities.Produit;
+
+import com.esprit.entities.Promotion;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -88,6 +87,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import com.esprit.services.ServiceProduit;
+import com.esprit.services.ServicePromotion;
 import tools.Connexion;
 //import com.itextpdf.text.Document;
 //import com.itextpdf.text.Element;
@@ -99,8 +99,12 @@ import tools.Connexion;
 import java.io.FileOutputStream;
 import java.net.MalformedURLException;
 import java.sql.DriverManager;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -118,7 +122,6 @@ public class ProduitsController implements Initializable {
     private AnchorPane filsP;
     @FXML
     private TableView<Produit> tabProd;
-    @FXML
     private TableColumn<Produit, Integer> col_idp;
     @FXML
     private TableColumn<Produit, String> col_nomp;
@@ -128,30 +131,33 @@ public class ProduitsController implements Initializable {
     private Button actualiseP;
     @FXML
     private Button btnquitterpn;
-    @FXML
-    private Button btnajoutqtpn;
-    @FXML
-    private Button btnajoutqtpn1;
-    @FXML
     private TableColumn<Produit,Integer> col_promo_id;
-    @FXML
     private TableColumn<Produit, Integer> col_qt;
-    @FXML
     private TableColumn<Produit, String> col_categorie;
-    @FXML
     private TableColumn<Produit, String> col_descrip;
-    @FXML
     private TableColumn<Produit, String> col_img;
     ObservableList<Produit> produitList = FXCollections.observableArrayList();
     @FXML
-    private TableColumn<Produit, String> col_lat;
+    private Button pdf;
     @FXML
-    private TableColumn<Produit, String> col_lon;
-    public void showProduits() {
-              
-             try {
-       //     Connexion cnx = Connexion.getInstance().getCnx();
-                    Connection instance = Connexion.getInstance().getCnx();
+    private TableColumn<?, ?> col_phop;
+    @FXML
+    private TableColumn<?, ?> col_des;
+    @FXML
+    private TableColumn<?, ?> col_dispop;
+    @FXML
+    private TableColumn<?, ?> col_promo;
+    @FXML
+    private TextField serch;
+    @FXML
+    private ImageView imgProduitInput;
+    @FXML
+    private Button btnstat;
+  public void showProduit() {
+
+        try {
+            //     Connexion cnx = Connexion.getInstance().getCnx();
+            Connection instance = Connexion.getInstance().getCnx();
 
             String query = "SELECT * FROM produit";
             Statement st;
@@ -159,11 +165,12 @@ public class ProduitsController implements Initializable {
             st = instance.createStatement();
             rst = st.executeQuery(query);
             Produit produits;
-        
+
             while (rst.next()) {
 
 //rst.getInt(1),
- produits = new Produit(rst.getInt(1),rst.getInt(2),rst.getString(3),rst.getInt(4),rst.getDouble(5),rst.getString(6),rst.getString(7),rst.getString(8),rst.getString(9),rst.getString(10));
+//(String nom, int quantite, double prix, String categorie, String description, String image, String lat, String lon, int promoId) 
+                produits = new Produit(rst.getString("nom") , rst.getInt("quantite"), rst.getDouble("prix"), rst.getString("categorie"), rst.getString("description"),rst.getString("image"),rst.getString("lat"),rst.getString("lon"),rst.getInt("promo_id"));
                 produitList.add(produits);
             }
 
@@ -171,23 +178,54 @@ public class ProduitsController implements Initializable {
             ex.printStackTrace();
             System.out.println("Error on Building Data");
         }
-       
-        col_idp.setCellValueFactory(new PropertyValueFactory<>("id"));
-        col_promo_id.setCellValueFactory(new PropertyValueFactory<>("promo-id"));
+
+        
         col_nomp.setCellValueFactory(new PropertyValueFactory<>("nom"));
-        col_qt.setCellValueFactory(new PropertyValueFactory<>("quantite"));
+        col_phop.setCellValueFactory(new PropertyValueFactory<>("image"));
+        col_des.setCellValueFactory(new PropertyValueFactory<>("description"));
+        col_dispop.setCellValueFactory(new PropertyValueFactory<>("quantite"));
+       // col_promo.setCellValueFactory(new PropertyValueFactory<>("promoId"));
         col_prixp.setCellValueFactory(new PropertyValueFactory<>("prix"));
-        col_categorie.setCellValueFactory(new PropertyValueFactory<>("categorie"));
-        col_descrip.setCellValueFactory(new PropertyValueFactory<>("description"));
-        col_img.setCellValueFactory(new PropertyValueFactory<>("image"));
-        
-        
-
-        
-
         tabProd.setItems(produitList);
     }
-   
+
+    //public void produiPromoList() {
+      //  List<String> promolist = new ArrayList<>();
+        //ServicePromotion servicePromotion = new ServicePromotion();
+        //for (Promotion data : servicePromotion.afficher()) {
+          //  promolist.add(data.getId() + "-" + data.getPercentage() + "%");
+            //ObservableList listData = FXCollections.observableArrayList(promolist);
+            //promo_comboBox.setItems(listData);
+        //}
+    //}
+    @FXML
+    public void search() {
+        FilteredList<Produit> filteredList;
+        filteredList = new FilteredList<>(produitList, (e -> true));
+        serch.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredList.setPredicate(predicateUser -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                String searchKey = newValue.toLowerCase();
+                if (String.valueOf(predicateUser.getId()).contains(searchKey)) {
+                    return true;
+                } else if (predicateUser.getNom().toLowerCase().contains(searchKey)) {
+                    return true;
+                } else if (predicateUser.getImage().toLowerCase().contains(searchKey)) {
+                    return true;
+                } else if (predicateUser.getDescription().toLowerCase().contains(searchKey)) {
+                    return true;
+                } else if (String.valueOf(predicateUser.getPromoId()).contains(searchKey)) {
+                    return true;
+                }
+                return false;
+            });
+        });
+        SortedList<Produit> sortList = new SortedList<>(filteredList);
+        sortList.comparatorProperty().bind(tabProd.comparatorProperty());
+        tabProd.setItems(sortList);
+    }
 
     /**
      * Initializes the controller class.
@@ -195,7 +233,7 @@ public class ProduitsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-         showProduits();
+         showProduit();
          
     }    
 
@@ -210,9 +248,6 @@ public class ProduitsController implements Initializable {
          System.exit(0);
     }
 
-    @FXML
-    private void Create_An_Order_Line(ActionEvent event) {
-    }
 
    // @FXML
    // private void constpn(ActionEvent event) {
@@ -227,9 +262,19 @@ public class ProduitsController implements Initializable {
         stage.show();}
 
     @FXML
-    private void constpn(ActionEvent event) {
+    private void extPDF(ActionEvent event) {
     }
+
+    @FXML
+    private void statistique(ActionEvent event) {
+     
+    }
+
+    // Vos autres méthodes existantes
+}
+
+    
         
-    }
+    
     
 

@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -15,92 +16,84 @@
    <children>
       <AnchorPane layoutY="-8.0" prefHeight="696.0" prefWidth="903.0" style="-fx-background-color: #f8ebb8;">
          <children>
-            <TextField fx:id="PrixTF" layoutX="444.0" layoutY="422.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: #24370e;" />
-            <Label layoutX="499.0" layoutY="172.0" text="ID:">
+            <TextField fx:id="PrixTF" layoutX="444.0" layoutY="395.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: #24370e;" />
+            <Label layoutX="346.0" layoutY="167.0" text="Nom">
                <font>
                   <Font name="Britannic Bold" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="idmodif" layoutX="535.0" layoutY="168.0" style="-fx-border-color: #24370e;" />
-            <Label layoutX="346.0" layoutY="251.0" text="Nom">
+            <Label layoutX="346.0" layoutY="208.0" prefHeight="18.0" prefWidth="62.0" text="Photo">
                <font>
                   <Font name="Britannic Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="346.0" layoutY="292.0" prefHeight="18.0" prefWidth="62.0" text="Photo">
+            <Label layoutX="341.0" layoutY="256.0" text="Description">
                <font>
                   <Font name="Britannic Bold" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="341.0" layoutY="340.0" text="Description">
-               <font>
-                  <Font name="Britannic Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="337.0" layoutY="387.0" text="Disponibilite">
-               <font>
-                  <Font name="Britannic Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="379.0" layoutY="426.0" text="Prix">
+            <Label layoutX="379.0" layoutY="401.0" text="Prix">
                <font>
                   <Font name="Britannic Bold" size="18.0" />
                </font>
             </Label>
             <AnchorPane prefHeight="714.0" prefWidth="218.0" style="-fx-background-color: #24370e;">
                <children>
-                  <Button fx:id="modif" layoutY="259.0" mnemonicParsing="false" onAction="#btn_modifier" prefHeight="42.0" prefWidth="218.0" style="-fx-background-color: #24370e; -fx-border-color: #f8ebb8;" text="Modifier" textFill="#f8ebb8">
+                  <Button fx:id="modif" layoutY="250.0" mnemonicParsing="false" onAction="#btn_modifier" prefHeight="42.0" prefWidth="218.0" style="-fx-background-color: #24370e; -fx-border-color: #f8ebb8;" text="Modifier" textFill="#f8ebb8">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="suppP" layoutX="1.0" layoutY="341.0" mnemonicParsing="false" onAction="#btn_SupprP" prefHeight="31.0" prefWidth="218.0" style="-fx-background-color: #24370e; -fx-border-color: #f8ebb8;" text="Supprimer" textFill="#f8ebb8">
+                  <Button fx:id="btn_SupprP" layoutX="1.0" layoutY="341.0" mnemonicParsing="false" onAction="#SuppProd" prefHeight="31.0" prefWidth="218.0" style="-fx-background-color: #24370e; -fx-border-color: #f8ebb8;" text="Supprimer" textFill="#f8ebb8">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnajoutP" layoutX="1.0" layoutY="415.0" mnemonicParsing="false" onAction="#AjoutProduit" prefHeight="31.0" prefWidth="218.0" style="-fx-background-color: #24370e; -fx-border-color: #f8ebb8;" text="Ajouter" textFill="#f8ebb8">
+                  <Button fx:id="btnajoutP" layoutX="1.0" layoutY="427.0" mnemonicParsing="false" onAction="#AjoutProduit" prefHeight="31.0" prefWidth="218.0" style="-fx-background-color: #24370e; -fx-border-color: #f8ebb8;" text="Ajouter" textFill="#f8ebb8">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="pdf" layoutX="1.0" layoutY="477.0" mnemonicParsing="false" onAction="#extPDF" prefHeight="31.0" prefWidth="218.0" style="-fx-background-color: #24370e; -fx-border-color: #f8ebb8;" text="Imprimer" textFill="#f8ebb8">
+                  <Button fx:id="pdf" layoutX="1.0" layoutY="513.0" mnemonicParsing="false" onAction="#extPDF" prefHeight="31.0" prefWidth="218.0" style="-fx-background-color: #24370e; -fx-border-color: #f8ebb8;" text="Imprimer" textFill="#f8ebb8">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="actualiseP" layoutX="1.0" layoutY="546.0" mnemonicParsing="false" onAction="#refreshP" prefHeight="31.0" prefWidth="218.0" style="-fx-background-color: #24370e; -fx-border-color: #f8ebb8;" text="Actualiser" textFill="#f8ebb8">
+                  <Button fx:id="btnquitterpn" layoutX="2.0" layoutY="646.0" mnemonicParsing="false" onAction="#Quitter" prefHeight="32.0" prefWidth="226.0" style="-fx-background-color: #24370e; -fx-border-color: #f8ebb8;" text="Quitter" textFill="#f8ebb8">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnquitterpn" layoutX="1.0" layoutY="606.0" mnemonicParsing="false" onAction="#Quitterpanier" prefHeight="31.0" prefWidth="218.0" style="-fx-background-color: #24370e; -fx-border-color: #f8ebb8;" text="Quitter" textFill="#f8ebb8">
+                  <Button fx:id="btnstat" layoutX="-3.0" layoutY="170.0" mnemonicParsing="false" onAction="#stat" prefHeight="34.0" prefWidth="218.0" style="-fx-background-color: #24370e; -fx-border-color: #f8ebb8;" text="Statistique" textFill="#f8ebb8">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button layoutX="-3.0" layoutY="189.0" mnemonicParsing="false" onAction="#homee" prefHeight="34.0" prefWidth="218.0" style="-fx-background-color: #24370e; -fx-border-color: #f8ebb8;" text="Home" textFill="#f8ebb8">
+                  <Button fx:id="mail" layoutX="1.0" layoutY="85.0" mnemonicParsing="false" onAction="#MailB" prefHeight="34.0" prefWidth="218.0" style="-fx-background-color: #24370e; -fx-border-color: #f8ebb8;" text="Envoyer un mail " textFill="#f8ebb8">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="triee" layoutX="6.0" layoutY="573.0" mnemonicParsing="false" onAction="#trierQuestionsParIdCroissant" prefHeight="31.0" prefWidth="218.0" style="-fx-background-color: #24370e; -fx-border-color: #f8ebb8;" text="Trier par quantite" textFill="#f8ebb8">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
                </children>
             </AnchorPane>
-            <TableView fx:id="tabProd" layoutX="278.0" layoutY="503.0" prefHeight="183.0" prefWidth="514.0" style="-fx-background-color: #24370e;">
+            <TableView fx:id="tabProd" layoutX="278.0" layoutY="503.0" onMouseClicked="#selectionData" prefHeight="183.0" prefWidth="596.0" style="-fx-background-color: #24370e;">
               <columns>
-                <TableColumn fx:id="col_idp" prefWidth="75.0" text="ID" />
                 <TableColumn fx:id="col_nomp" prefWidth="75.0" text="Nom" />
                   <TableColumn fx:id="col_phop" prefWidth="75.0" text="Photo" />
                   <TableColumn fx:id="col_des" prefWidth="75.0" text="Description" />
-                  <TableColumn fx:id="col_dispop" prefWidth="120.800048828125" text="Disponibilite" />
+                  <TableColumn fx:id="col_dispop" prefWidth="120.800048828125" text="Quantite" />
+                  <TableColumn fx:id="col_promo" prefWidth="87.20001831054685" text="Promo" />
                   <TableColumn fx:id="col_prixp" prefWidth="87.20001831054685" text="Prix" />
               </columns>
             </TableView>
-            <TextField fx:id="nomTF" layoutX="444.0" layoutY="247.0" style="-fx-border-color: #24370e;" />
-            <TextField fx:id="PhotoTF" layoutX="446.0" layoutY="288.0" prefHeight="27.0" prefWidth="150.0" style="-fx-border-color: #24370e;" />
-            <TextField fx:id="DescTF" layoutX="444.0" layoutY="336.0" style="-fx-border-color: #24370e;" />
-            <ComboBox fx:id="dispocombo" layoutX="448.0" layoutY="383.0" prefHeight="26.0" prefWidth="143.0" style="-fx-border-color: #24370e;" />
-            <Text fill="#24370e" fontSmoothingType="LCD" layoutX="234.0" layoutY="75.0" stroke="#24370e" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion des Produits" textAlignment="CENTER" wrappingWidth="321.13671875">
+            <TextField fx:id="nomTF" layoutX="444.0" layoutY="163.0" style="-fx-border-color: #24370e;" />
+            <TextField fx:id="DescTF" layoutX="444.0" layoutY="252.0" style="-fx-border-color: #24370e;" />
+            <Text fill="#24370e" fontSmoothingType="LCD" layoutX="254.0" layoutY="89.0" stroke="#24370e" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion des Produits" textAlignment="CENTER" wrappingWidth="321.13671875">
                <font>
                   <Font name="Britannic Bold" size="50.0" />
                </font>
@@ -108,6 +101,27 @@
                   <Glow />
                </effect>
             </Text>
+            <Label layoutX="347.0" layoutY="354.0" text="Promo">
+               <font>
+                  <Font name="Britannic Bold" size="18.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="promo_comboBox" layoutX="448.0" layoutY="350.0" prefHeight="26.0" prefWidth="143.0" style="-fx-border-color: #24370e;" />
+            <Label layoutX="341.0" layoutY="300.0" text="Quantite">
+               <font>
+                  <Font name="Britannic Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="quantite" layoutX="444.0" layoutY="296.0" style="-fx-border-color: #24370e;" />
+            <TextField fx:id="serch" layoutX="687.0" layoutY="133.0" onKeyTyped="#search" promptText="Recherche" />
+            <ImageView fx:id="imgProduitInput" fitHeight="150.0" fitWidth="200.0" layoutX="667.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true" />
+            <Button layoutX="478.0" layoutY="211.0" mnemonicParsing="false" onAction="#ajouterImage" text="Import Pic" />
+            <TextField fx:id="txtNumUser" layoutX="429.0" layoutY="446.0" />
+            <Label layoutX="380.0" layoutY="451.0" text="SMS">
+               <font>
+                  <Font name="Britannic Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.esprit.services;
 
 import com.esprit.entities.Produit;
@@ -32,7 +29,7 @@ public class ServiceProduit implements IService<Produit> {
         String req = "INSERT INTO produit (promo_id, nom, quantite, prix, categorie, description, image, lat, lon) VALUES (?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement pst = cnx.prepareStatement(req);
-            pst.setInt(1, p.getPromotion().getId());
+            pst.setInt(1, p.getPromoId());
             pst.setString(2, p.getNom());
             pst.setInt(3, p.getQuantite());
             pst.setDouble(4, p.getPrix());
@@ -53,7 +50,7 @@ public class ServiceProduit implements IService<Produit> {
         String req = "UPDATE produit SET promo_id=?, nom=?, quantite=?, prix=?, categorie=?, description=?, image=?, lat=?, lon=? WHERE id=?";
         try {
             PreparedStatement pst = cnx.prepareStatement(req);
-            pst.setInt(1, p.getPromotion().getId());
+            pst.setInt(1, p.getPromoId());
             pst.setString(2, p.getNom());
             pst.setInt(3, p.getQuantite());
             pst.setDouble(4, p.getPrix());
@@ -92,16 +89,16 @@ public class ServiceProduit implements IService<Produit> {
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 Produit p = new Produit(
-                        rs.getInt("id"),
-                        new Promotion(rs.getInt("promo_id")),
-                        rs.getString("nom"),
-                        rs.getInt("quantite"),
-                        rs.getDouble("prix"),
-                        rs.getString("categorie"),
-                        rs.getString("description"),
-                        rs.getString("image"),
-                        rs.getString("lat"),
-                        rs.getString("lon")
+//                        rs.getInt("id"),
+//                        new Promotion(rs.getInt("promo_id")),
+//                        rs.getString("nom"),
+//                        rs.getInt("quantite"),
+//                        rs.getDouble("prix"),
+//                        rs.getString("categorie"),
+//                        rs.getString("description"),
+//                        rs.getString("image"),
+//                        rs.getString("lat"),
+//                        rs.getString("lon")
                 );
                 list.add(p);
             }

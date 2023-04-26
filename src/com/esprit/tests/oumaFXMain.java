@@ -33,7 +33,7 @@ public class oumaFXMain extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         
-        Parent root = FXMLLoader.load(getClass().getResource("/gui/PromoFroutController.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/gui/produits.fxml"));
 
         Scene scene = new Scene(root);
         
