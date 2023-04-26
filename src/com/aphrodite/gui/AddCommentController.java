@@ -1,5 +1,6 @@
 package com.aphrodite.gui;
 
+import com.aphrodite.Api.TextFilter;
 import com.aphrodite.entities.Comment;
 import com.aphrodite.entities.Post;
 import com.aphrodite.entities.SinglePost;
@@ -7,6 +8,8 @@ import static com.aphrodite.gui.AddPostController.showMaterialDialog;
 import static com.aphrodite.gui.ViewMoreController.loadWindow;
 import com.aphrodite.services.ServiceComment;
 import com.jfoenix.controls.JFXTextArea;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
 import java.sql.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -19,6 +22,7 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import org.json.simple.parser.ParseException;
 
 
 public class AddCommentController {
@@ -39,7 +43,7 @@ Date date=new Date(ts.getTime());
             System.out.println("date  is "+ date+"  time stamp is  "  + ts  );
     }
     @FXML
-    private void HandleAddComment(ActionEvent event) {
+    private void HandleAddComment(ActionEvent event) throws MalformedURLException, UnsupportedEncodingException, ParseException {
 
  java.sql.Timestamp ts = new java.sql.Timestamp(System.currentTimeMillis());
 Date date=new Date(ts.getTime());
@@ -62,10 +66,14 @@ Date date=new Date(ts.getTime());
           
           }*/
         String cmnts = Comment.getText() ;
-        System.out.println( "C id" + p.getId() + "the author id " + p.getauthor_id()+ "the content" + cmnts + "the date" + date);
-        sc.ajouter(new Comment(p.getId(),p.getauthor_id(), cmnts, ts));
+                TextFilter txtf = new TextFilter();
+
+                String filtredcmnts = txtf.GetTwi(cmnts) ;
+
+        System.out.println( "C id" + p.getId() + "the author id " + p.getauthor_id()+ "the content" + filtredcmnts + "the date" + date);
+        sc.ajouter(new Comment(p.getId(),p.getauthor_id(), filtredcmnts, ts));
         closeStage();
-                                loadWindow(getClass().getResource("/com/aphrodite/gui/Show_post.fxml"), "Show Posts", null);
+                                loadWindow(getClass().getResource("/com/example/appointment/appointment.fxml"), "Show Posts", null);
 
     }
         private void closeStage() {
@@ -75,7 +83,7 @@ Date date=new Date(ts.getTime());
     @FXML
     private void handleReturn(ActionEvent event) {
             closeStage();
-        loadWindow(getClass().getResource("/com/aphrodite/gui/Show_post.fxml"), "Show Posts", null);
+        loadWindow(getClass().getResource("/com/example/appointment/appointment.fxml"), "Show Posts", null);
     }
  
 }

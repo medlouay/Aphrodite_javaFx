@@ -16,6 +16,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -38,6 +40,8 @@ import javafx.stage.StageStyle;
     private JFXButton AddComment;
     @FXML
     private JFXButton SComment;
+    @FXML
+    private WebView WebRes;
 
         @FXML
         void HandleShowComments(ActionEvent event) {
@@ -51,6 +55,8 @@ import javafx.stage.StageStyle;
            //     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
             publishedCol.setText(selectedForEdit.getpublished_at().toString());
+            WebEngine webeng = WebRes.getEngine();
+        webeng.loadContent(selectedForEdit.getContent(), "text/html");
                     EventHandler<ActionEvent> Grate = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e) {
                 SinglePost holder = SinglePost.getInstance();
@@ -100,7 +106,7 @@ import javafx.stage.StageStyle;
     @FXML
     private void handleReturn(ActionEvent event) {
                         closeStage();
-        loadWindow(getClass().getResource("/com/aphrodite/gui/Show_post.fxml"), "Show Posts", null);
+        loadWindow(getClass().getResource("/com/example/appointment/appointment.fxml"), "Show Posts", null);
     }
           private void closeStage() {
         ((Stage) summaryTextArea.getScene().getWindow()).close();

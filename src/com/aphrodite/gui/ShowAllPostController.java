@@ -5,6 +5,7 @@ import com.aphrodite.entities.SinglePost;
 import static com.aphrodite.gui.ViewMoreController.loadWindow;
 import com.aphrodite.services.ServicePost;
 import com.aphrodite.utils.DataSource;
+import com.jfoenix.controls.JFXTextField;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import javafx.collections.FXCollections;
@@ -32,6 +33,9 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Optional;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
+import javafx.scene.layout.Pane;
 
 public class ShowAllPostController {
     ServicePost sp = new ServicePost();
@@ -39,7 +43,7 @@ public class ShowAllPostController {
     ObservableList<Post> list = FXCollections.observableArrayList();
     
     @FXML
-    private AnchorPane rootAnchorPane;
+    private Pane rootAnchorPane;
 
 
     @FXML
@@ -63,6 +67,8 @@ public class ShowAllPostController {
 
     @FXML
     private TableColumn<Post, String> author_idCol;
+    @FXML
+    private JFXTextField Search;
 
 
 
@@ -103,6 +109,42 @@ LocalDateTime publishedAt = LocalDateTime.parse(result.getString("published_at")
             System.out.println(e.getMessage());
         }
         tableView.setItems(list);
+                      // Wrap the ObservableList in a FilteredList (initially display all data).
+        FilteredList<Post> filteredData = new FilteredList<>(list, b -> true);
+		
+		// 2. Set the filter Predicate whenever the filter changes.
+		Search.textProperty().addListener((observable, oldValue, newValue) -> {
+			filteredData.setPredicate(Place -> {
+				// If filter text is empty, display all persons.
+								
+				if (newValue == null || newValue.isEmpty()) {
+					return true;
+				}
+				
+				// Compare first name and last name of every person with filter text.
+				String lowerCaseFilter = newValue.toLowerCase();
+				
+				if (Place.getTitle().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+					return true; // Filter matches first name.
+				} else if (Place.getSlug().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches last name.
+				} else if (Place.getAuthor_name().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches last name.
+				} 
+				     else  
+				    	 return false; // Does not match.
+			});
+		});
+		
+		// 3. Wrap the FilteredList in a SortedList. 
+		SortedList<Post> sortedData = new SortedList<>(filteredData);
+		
+		// 4. Bind the SortedList comparator to the TableView comparator.
+		// 	  Otherwise, sorting the TableView would have no effect.
+		sortedData.comparatorProperty().bind(tableView.comparatorProperty());
+		
+		// 5. Add sorted (and filtered) data to the table.
+		tableView.setItems(sortedData);
     }
 
     @FXML

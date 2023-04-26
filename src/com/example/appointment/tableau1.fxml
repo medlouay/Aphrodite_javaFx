@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane prefHeight="804.0" prefWidth="1052.0" style="-fx-background-color: #EAEEF4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.appointment.Tableau1">
+   <children>
+      <TabPane prefHeight="804.0" prefWidth="1052.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Appointmnt request ">
+               <content>
+                  <TableView fx:id="tableView" prefHeight="370.0" prefWidth="1052.0">
+                    <columns>
+                      <TableColumn fx:id="tableColumnName" prefWidth="75.0" text="name" />
+                        <TableColumn fx:id="tableColumnlastname" prefWidth="75.0" text="last name" />
+                        <TableColumn fx:id="tableColumnDOB" prefWidth="75.0" text="birthday" />
+                        <TableColumn fx:id="tableColumnGender" prefWidth="75.0" text="gender" />
+                        <TableColumn fx:id="tableColumnPhone" prefWidth="138.0" text="phone number" />
+                        <TableColumn fx:id="tableColumnEmail" prefWidth="75.0" text="email" />
+                        <TableColumn fx:id="tableColumnNewOld" prefWidth="75.0" text="new_old" />
+                        <TableColumn fx:id="tableColumnProced" prefWidth="75.0" text="procedure" />
+                        <TableColumn fx:id="tableColumnDate" prefWidth="75.0" text="date" />
+                        <TableColumn fx:id="tableColumnTime" prefWidth="75.0" text="time" />
+                        <TableColumn fx:id="tableColumnStatus" prefWidth="75.0" text="status" />
+                    </columns>
+                     <contextMenu>
+                        <ContextMenu>
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#handleRefresh" text="Refresh" />
+                              <MenuItem mnemonicParsing="false" onAction="#handlePlaceEdit" text="Edit" />
+                              <MenuItem mnemonicParsing="false" onAction="#handlePlaceDelete" text="Delete" />
+                           </items>
+                           <styleClass>
+                              <String fx:value="table-context" />
+                              <String fx:value="colored-context-menu" />
+                           </styleClass>
+                        </ContextMenu>
+                     </contextMenu>
+                  </TableView>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</Pane>

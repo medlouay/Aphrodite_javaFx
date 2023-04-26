@@ -26,6 +26,7 @@ import javafx.stage.Stage;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXDialogLayout;
+import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.events.JFXDialogEvent;
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -38,10 +39,13 @@ import javafx.scene.control.DialogPane;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.effect.BoxBlur;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javax.swing.*;
 
 public class AddPostController {
@@ -53,7 +57,7 @@ public class AddPostController {
     private TextField slugTextField;
 
     @FXML
-    private TextArea summaryTextArea;
+    private JFXTextField summaryTextArea;
 
     @FXML
     private TextArea contentTextArea;
@@ -69,12 +73,14 @@ public class AddPostController {
         LocalDateTime publishedAt;
 
     private ServicePost servicePost;
+    @FXML
+    private WebView WebRes;
 
     public void initialize() {
+    
 
     }
     @FXML
-
     private void handleAddOperation(ActionEvent event) {
    java.sql.Timestamp ts = new java.sql.Timestamp(System.currentTimeMillis());
 Date date=new Date(ts.getTime());
@@ -177,6 +183,14 @@ Date date=new Date(ts.getTime());
     @FXML
     private void handleReturn(ActionEvent event) {
                 closeStage();
-        loadWindow(getClass().getResource("/com/aphrodite/gui/Show_post.fxml"), "Show Posts", null);
+        loadWindow(getClass().getResource("/com/example/appointment/appointment.fxml"), "Show Posts", null);
+    }
+
+ 
+
+    @FXML
+    private void testit(ActionEvent event) {
+              WebEngine webeng = WebRes.getEngine();
+        webeng.loadContent(contentTextArea.getText(), "text/html");
     }
 }

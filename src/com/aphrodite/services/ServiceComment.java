@@ -52,6 +52,18 @@ public class ServiceComment implements IService<Comment> {
             System.out.println(ex.getMessage());
         }
     }
+        public boolean update(Comment c) {
+        String req = "UPDATE comment SET post_id='" + c.getpost_id() + "', author_id='" + c.getauthor_id() + "', content='" + c.getContent() + "', published_at='" + c.getpublished_at() + "' WHERE id=" + c.getId();
+        try {
+            Statement st = cnx.createStatement();
+            st.executeUpdate(req);
+            System.out.println("Comment modifié !");
+            return true ;
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return false ;
+    }
 
     @Override
     public void supprimer(Comment c) {
@@ -64,7 +76,13 @@ public class ServiceComment implements IService<Comment> {
             System.out.println(ex.getMessage());
         }
     }
-
+    public void supprimer(int  id)throws SQLException {
+ 
+    PreparedStatement ps = cnx.prepareStatement("DELETE FROM Comment WHERE id = ?");
+    ps.setInt(1, id);
+    ps.executeUpdate();
+    }
+    
     @Override
     public List<Comment> afficher() {
         List<Comment> list = new ArrayList<>();
@@ -83,6 +101,27 @@ public class ServiceComment implements IService<Comment> {
 
         return list;
     }
+    public Comment getCommentId(String text){
+   Comment c = new Comment() ;
+    
+        String req = "SELECT * FROM comment WHERE content='" +text+"';";
+        try {
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()) {
+
+                 c.setId(rs.getInt("id"));
+                 c.setContent(rs.getString("content"));
+                 c.setauthor_id(rs.getInt("author_id"));
+                 c.setpost_id(rs.getInt("post_id"));
+                 c.setpublished_at(rs.getTimestamp("published_at"));
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    return c ;
+    }
+
     public List<Comment> ShowByPost( int id  ) {
         List<Comment> list = new ArrayList<>();
 
@@ -100,4 +139,32 @@ public class ServiceComment implements IService<Comment> {
 
         return list;
     }
+ public void deleteComment(int commentId) throws SQLException {
+ 
+    PreparedStatement ps = cnx.prepareStatement("DELETE FROM Comment WHERE id = ?");
+    ps.setInt(1, commentId);
+    ps.executeUpdate();
+}
+
+    public Comment getById(int commentId) {
+  Comment c = new Comment() ;
+    
+        String req = "SELECT * FROM comment WHERE id=" +commentId+";";
+        try {
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()) {
+
+                 c.setId(rs.getInt("id"));
+                 c.setContent(rs.getString("content"));
+                 c.setauthor_id(rs.getInt("author_id"));
+                 c.setpost_id(rs.getInt("post_id"));
+                 c.setpublished_at(rs.getTimestamp("published_at"));
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    return c ;    }
+
+
 }

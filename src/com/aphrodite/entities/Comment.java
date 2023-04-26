@@ -14,6 +14,9 @@ public class Comment {
         this.id = id;
     }
 
+    public Comment() {
+    }
+
     public Comment(int post_id, int author_id, String content, Timestamp published_at) {
         this.post_id = post_id;
         this.author_id = author_id;
