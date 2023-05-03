@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="rootPane" focusTraversable="true" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../../../../../../Desktop/Pidev-nasr/src/roadrevel/resources/Styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.UI.Admin.MainPageController">
+   <children>
+      <JFXDrawer fx:id="drawer" resizableOnDrag="true" resizeContent="true" styleClass="jfx-drawer" />
+      <BorderPane fx:id="rootAnchorPane" focusTraversable="true" styleClass="dark-background" stylesheets="@../../../../../../Desktop/Pidev-nasr/src/roadrevel/resources/Styles.css">
+         <top>
+            <HBox alignment="CENTER_LEFT" focusTraversable="true" prefHeight="122.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="131.0" prefWidth="171.0">
+                     <children>
+                        <JFXHamburger fx:id="hamburger" alignment="CENTER" fillWidth="false" prefHeight="87.0" prefWidth="86.0" styleClass="jfx-hamburger-icon" />
+                        <Label contentDisplay="CENTER" prefHeight="122.0" prefWidth="85.0" text="Menu" textFill="#46adc9">
+                           <font>
+                              <Font name="Arial Bold" size="19.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="122.0" prefWidth="205.0">
+                     <children>
+                        <ImageView fx:id="imagePI" fitHeight="88.0" fitWidth="314.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </HBox>
+                  <Pane prefHeight="122.0" prefWidth="653.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <TextField fx:id="searchField" layoutX="61.0" layoutY="46.0" prefHeight="31.0" prefWidth="254.0" promptText="Search" />
+                        <JFXButton layoutX="373.0" layoutY="41.0" onAction="#HandleLoginOperation" prefHeight="41.0" prefWidth="84.0" styleClass="toolbar-button" text="Search" textFill="#46adc9">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </Pane>
+                  <HBox alignment="CENTER" prefHeight="122.0" prefWidth="143.0" />
+                  <HBox alignment="CENTER" prefHeight="122.0" prefWidth="289.0">
+                     <children>
+                        <Circle fx:id="UserLogo" fill="#1fdeff" radius="37.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Pane prefHeight="122.0" prefWidth="23.0" />
+                        <JFXButton prefHeight="41.0" prefWidth="91.0" styleClass="toolbar-button" text="LogOut" textFill="#46adc9">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </top>
+         <center>
+            <JFXTabPane fx:id="mainTabPane" BorderPane.alignment="CENTER">
+               <tabs>
+                  <Tab fx:id="renewTab" closable="false" styleClass="tab-main" text="Home">
+                     <content>
+                        <VBox focusTraversable="true" prefHeight="651.0" prefWidth="1300.0" stylesheets="@../../../../../../Desktop/Pidev-nasr/src/roadrevel/resources/Styles.css">
+                           <children>
+                              <HBox alignment="CENTER" focusTraversable="true" prefHeight="95.0" prefWidth="1300.0">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="127.0" prefWidth="243.0" />
+                                    <Pane prefHeight="129.0" prefWidth="903.0" HBox.hgrow="ALWAYS" />
+                                    <HBox alignment="CENTER" prefHeight="95.0" prefWidth="94.0">
+                                       <children>
+                                          <JFXButton prefHeight="41.0" prefWidth="84.0" styleClass="toolbar-button" text="  " textFill="#46adc9">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="30.0" right="30.0" />
+                                 </padding>
+                              </HBox>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefWidth="1300.0" VBox.vgrow="ALWAYS">
+                                 <content>
+                                    <GridPane fx:id="PlacesGrid" focusTraversable="true" prefHeight="476.0" prefWidth="1215.0" styleClass="dark-background">
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="bookIssueTab" closable="false" styleClass="tab-main" text="Services">
+                     <content>
+                        <AnchorPane focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1300.0" />
+                     </content>
+                  </Tab>
+                  <Tab fx:id="bookIssueTab1" closable="false" styleClass="tab-main" text="Doctors">
+                     <content>
+                        <AnchorPane focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1300.0" />
+                     </content>
+                  </Tab>
+                  <Tab fx:id="bookIssueTab2" closable="false" styleClass="tab-main" text="Appointments">
+                     <content>
+                        <AnchorPane focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1300.0">
+                           <children>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="651.0" prefWidth="1300.0">
+                                 <content>
+                                    <GridPane fx:id="AppointmentGrid1" focusTraversable="true" prefHeight="476.0" prefWidth="1215.0" styleClass="dark-background">
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                 </content>
+                              </ScrollPane>
+                           </children></AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="bookIssueTab3" closable="false" styleClass="tab-main" text="Post">
+                     <content>
+                        <AnchorPane focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1300.0" />
+                     </content>
+                  </Tab>
+                  <Tab fx:id="bookIssueTab31" closable="false" styleClass="tab-main" text="Reclamation">
+                     <content>
+                        <AnchorPane focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1300.0" />
+                     </content>
+                  </Tab>
+                  <Tab fx:id="bookIssueTab311" closable="false" styleClass="tab-main" text="Symtome">
+                     <content>
+                        <AnchorPane focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1300.0" />
+                     </content>
+                  </Tab>
+               </tabs>
+            </JFXTabPane>
+         </center>
+      </BorderPane>
+   </children>
+</StackPane>

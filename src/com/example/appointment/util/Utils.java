@@ -1,5 +1,7 @@
 package com.example.appointment.util;
 
+import java.io.IOException;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -7,11 +9,17 @@ import java.util.Date;
 import java.util.Locale;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.stage.Window;
 import javafx.util.StringConverter;
 
 public class Utils {
@@ -99,6 +107,35 @@ public class Utils {
                 }
             }
         });
+    }
+    
+    public static Object loadWindow(URL loc, String title, Stage parentStage) {
+        Object controller = null;
+        try {
+            FXMLLoader loader = new FXMLLoader(loc);
+            Parent parent = loader.load();
+            controller = loader.getController();
+            Stage stage = null;
+            if (parentStage != null) {
+                stage = parentStage;
+            } else {
+                stage = new Stage(StageStyle.DECORATED);
+            }
+            stage.setTitle(title);
+            stage.setScene(new Scene(parent ,1445,833));
+            stage.show();
+        } catch (IOException ex) {
+            ex.getMessage();
+        }
+        return controller;
+    }
+        public static void showAlert(Alert.AlertType alertType, Window owner, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.initOwner(owner);
+        alert.show();
     }
 
 }

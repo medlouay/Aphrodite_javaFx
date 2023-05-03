@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane prefHeight="804.0" prefWidth="1052.0" style="-fx-background-color: #EAEEF4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.UI.Admin.Tableau2Controller">
+   <children>
+      <TabPane prefHeight="804.0" prefWidth="1052.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="Fiche Patient">
+               <content>
+                  <TableView fx:id="tableView2" prefHeight="370.0" prefWidth="1052.0">
+                     <columns>
+                        <TableColumn fx:id="tableColumnName" prefWidth="75.0" text="name" />
+                        <TableColumn fx:id="tableColumnSymptom" prefWidth="75.0" text="symptome" />
+                        <TableColumn fx:id="tableColumnMedicament" prefWidth="75.0" text="medicament" />
+                        <TableColumn fx:id="tableColumnProgres" prefWidth="75.0" text="progres" />
+                     </columns>
+                     <contextMenu>
+                        <ContextMenu>
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#handleRefresh" text="Refresh" />
+                              
+                           </items>
+                           <styleClass>
+                              <String fx:value="table-context" />
+                              <String fx:value="colored-context-menu" />
+                           </styleClass>
+                        </ContextMenu>
+                     </contextMenu>
+                  </TableView>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</Pane>

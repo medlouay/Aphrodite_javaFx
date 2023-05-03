@@ -25,8 +25,8 @@ public class Mail {
     
     
     
-    private static final String USERNAME = "achref.abbas@esprit.tn";
-    private static final String PASSWORD = "valo260999";
+    private static final String USERNAME = "mayahi.nasr@esprit.tn";
+    private static final String PASSWORD = "223JMT5881";
 
     public static void envoyer(String email) throws Exception{
         Properties props = new Properties();

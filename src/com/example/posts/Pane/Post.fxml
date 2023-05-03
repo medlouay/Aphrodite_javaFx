@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane onMouseEntered="#BtnShow" onMouseExited="#BtnHide" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.posts.Pane.PostController">
+   <children>
+      <AnchorPane prefHeight="262.0" prefWidth="529.0" style="-fx-background-color: #008ECC; -fx-background-radius: 68; -fx-border-color: black; -fx-border-width: 5; -fx-border-radius: 65;">
+         <children>
+            <Label fx:id="Date" layoutX="347.0" layoutY="227.0" prefHeight="27.0" prefWidth="182.0" text="Date" textFill="#4a4848" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="Title" layoutX="27.0" layoutY="10.0" prefHeight="40.0" prefWidth="483.0" text="Title" textFill="#575252" wrapText="true">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Label fx:id="Slug" layoutX="5.0" layoutY="62.0" prefHeight="40.0" prefWidth="357.0" text="Slug" textFill="#575252" wrapText="true">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="btnMore" buttonType="RAISED" layoutX="204.0" layoutY="86.0" onAction="#ShowMore" prefHeight="85.0" prefWidth="128.0" ripplerFill="#be3e3e" styleClass="Addbtn" stylesheets="@../../utils/Style.css" text="Show More">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </children>
+</Pane>

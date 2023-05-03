@@ -21,7 +21,7 @@ public final class DatabaseHandler {
     
     private static DatabaseHandler instance;
     
-    private final String URL = "jdbc:mysql://127.0.0.1:3306/aphrodite";
+    private final String URL = "jdbc:mysql://127.0.0.1/aphrodite";
     private final String USERNAME = "root";
     private final String PASSWORD = "";
 

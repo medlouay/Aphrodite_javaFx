@@ -1,21 +1,31 @@
-package com.example.appointment;
-import com.example.appointment.model.entities.Promotion;
+package com.example.posts;
 import com.example.appointment.model.entities.User;
-import com.example.appointment.model.services.ServicePromotion;
 import com.example.appointment.model.services.UserService;
+import com.example.entities.Post;
+import com.example.entities.SinglePost;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.stage.Stage;
 import java.io.IOException;
+import javafx.scene.Parent;
 
-///com/example/login/login.fxml
+
 public class HelloApplication extends Application {
     private static Scene mainScene;
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/login/login.fxml"));
+      
+        Post p = new Post(3,2,"oergneorngenr","oaefiazhfzehf","sdoivnsdovnsdon","sdibusdbvsdbviusdbvs","qsdnsdvosdinvnsdinvosn");
+       SinglePost holder = SinglePost.getInstance();
+                holder.setPlace(p);
+                System.out.println( " l id est  "+ p.getId());
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ViewMoreUser.fxml"));
+                    Parent parent = fxmlLoader.load();
+
+        //ViewMoreUserController controller = (ViewMoreUserController) fxmlLoader.getController();
+           // controller.infalteUI(p);
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Hello!");
         stage.setScene(scene);
@@ -41,13 +51,7 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-        User u = new User("tgesty", "tggesgty", "testddygg@test.test", "tgest", false);
-        UserService service = new  UserService();
-          System.out.println(service.afficher());
-          
-         ServicePromotion service1 = new ServicePromotion();
-         System.out.println(service1.afficher());
-         
+
         launch();
 //        AppointmentDao appointmentDao = DaoFactory.createAppointmentDao();
 //

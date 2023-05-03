@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="rootPane" focusTraversable="true" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../../../../../../Desktop/Pidev-nasr/src/roadrevel/resources/Styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.UI.User.MainPageController">
+   <children>
+      <JFXDrawer fx:id="drawer" resizableOnDrag="true" resizeContent="true" styleClass="jfx-drawer" />
+      <BorderPane fx:id="rootAnchorPane" focusTraversable="true" styleClass="dark-background" stylesheets="@../../../../../../Desktop/Pidev-nasr/src/roadrevel/resources/Styles.css">
+         <top>
+            <HBox alignment="CENTER_LEFT" focusTraversable="true" prefHeight="122.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="131.0" prefWidth="171.0">
+                     <children>
+                        <JFXHamburger fx:id="hamburger" alignment="CENTER" fillWidth="false" prefHeight="87.0" prefWidth="86.0" styleClass="jfx-hamburger-icon" />
+                        <Label contentDisplay="CENTER" prefHeight="122.0" prefWidth="85.0" text="Menu" textFill="#46adc9">
+                           <font>
+                              <Font name="Arial Bold" size="19.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="122.0" prefWidth="205.0">
+                     <children>
+                        <ImageView fx:id="imagePI" fitHeight="88.0" fitWidth="314.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </HBox>
+                  <Pane prefHeight="122.0" prefWidth="653.0" HBox.hgrow="ALWAYS" />
+                  <HBox alignment="CENTER" prefHeight="122.0" prefWidth="143.0" />
+                  <HBox alignment="CENTER" prefHeight="122.0" prefWidth="289.0">
+                     <children>
+                        <Circle fx:id="UserLogo" fill="#21ff21" radius="37.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Pane prefHeight="122.0" prefWidth="23.0" />
+                        <JFXButton fx:id="logout" onAction="#HandleLogOut" prefHeight="41.0" prefWidth="91.0" styleClass="toolbar-button" text="LogOut" textFill="#46adc9">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </top>
+         <center>
+            <JFXTabPane fx:id="mainTabPane" BorderPane.alignment="CENTER">
+               <tabs>
+                  <Tab fx:id="renewTab" closable="false" styleClass="tab-main" text="Home">
+                     <content>
+                        <VBox focusTraversable="true" prefHeight="651.0" prefWidth="1300.0" stylesheets="@../../../../../../Desktop/Pidev-nasr/src/roadrevel/resources/Styles.css">
+                           <children>
+                              <HBox alignment="CENTER" focusTraversable="true" prefHeight="95.0" prefWidth="1300.0">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="127.0" prefWidth="243.0" />
+                                    <Pane prefHeight="129.0" prefWidth="903.0" HBox.hgrow="ALWAYS" />
+                                    <HBox alignment="CENTER" prefHeight="95.0" prefWidth="94.0">
+                                       <children>
+                                          <JFXButton prefHeight="41.0" prefWidth="84.0" styleClass="toolbar-button" text="  " textFill="#46adc9">
+                                             <font>
+                                                <Font name="System Bold" size="18.0" />
+                                             </font>
+                                          </JFXButton>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="30.0" right="30.0" />
+                                 </padding>
+                              </HBox>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefWidth="1300.0" VBox.vgrow="ALWAYS">
+                                 <content>
+                                    <GridPane fx:id="PlacesGrid" focusTraversable="true" prefHeight="476.0" prefWidth="1215.0" styleClass="dark-background">
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="bookIssueTab1" closable="false" styleClass="tab-main" text="Doctors">
+                     <content>
+                        <AnchorPane focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1300.0" />
+                     </content>
+                  </Tab>
+                  <Tab fx:id="bookIssueTab2" closable="false" styleClass="tab-main" text="Appointments">
+                     <content>
+                        <AnchorPane focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1300.0">
+                           <children>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="652.0" prefWidth="1300.0">
+                                 <content>
+                                    <GridPane fx:id="ListAppGrid1" focusTraversable="true" prefHeight="476.0" prefWidth="1215.0" styleClass="dark-background">
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                 </content>
+                              </ScrollPane>
+                           </children></AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="bookIssueTab3" closable="false" styleClass="tab-main" text="Post">
+                     <content>
+                        <AnchorPane focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1300.0">
+                           <children>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="652.0" prefWidth="1300.0">
+                                 <content>
+                                    <GridPane fx:id="PostGrid" focusTraversable="true" prefHeight="476.0" prefWidth="1215.0">
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                 </content>
+                              </ScrollPane>
+                           </children></AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="bookIssueTab31" closable="false" styleClass="tab-main" text="Reclamation">
+                     <content>
+                        <AnchorPane focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1300.0" />
+                     </content>
+                  </Tab>
+                  <Tab fx:id="bookIssueTab311" closable="false" styleClass="tab-main" text="Symtome">
+                     <content>
+                        <AnchorPane focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1300.0" />
+                     </content>
+                  </Tab>
+                  <Tab fx:id="promo" closable="false" styleClass="tab-main" text="Promotion">
+                     <content>
+                        <AnchorPane focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1300.0">
+                           <children>
+                              <TableView fx:id="tabpromo" layoutX="331.0" layoutY="218.0" onMouseClicked="#modifChamps" prefHeight="360.0" prefWidth="782.0" style="-fx-background-color: #03bdd4;">
+                                 <columns>
+                                    <TableColumn fx:id="nomcell" prefWidth="263.0" text="Date Début" />
+                                    <TableColumn fx:id="prixcell" prefWidth="212.0" text="Date Fin" />
+                                    <TableColumn fx:id="desccell" prefWidth="306.0" text="Pourcentage" />
+                                 </columns>
+                              </TableView>
+                              <JFXButton layoutX="22.0" layoutY="125.0" onAction="#homee" prefHeight="32.0" prefWidth="196.0" style="-fx-background-color: #03bdd4;" styleClass="btn_workbench11" stylesheets="@../../../../../../../Desktop/ouma/src/gui/style.css" text="Home" textFill="#c6b6b6">
+                                 <graphic>
+                                    <ImageView fitHeight="40.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../main/resources/images/home.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="btn_qrcode" layoutX="22.0" layoutY="218.0" onAction="#generateQRCode" prefHeight="32.0" prefWidth="196.0" style="-fx-background-color: #03bdd4;" styleClass="btn_workbench11" stylesheets="@../../../../../../../Desktop/ouma/src/gui/style.css" text="QR Code" textFill="#c6b6b6">
+                                 <graphic>
+                                    <ImageView fitHeight="40.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../main/resources/images/codeqr.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="13.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="prod" closable="false" styleClass="tab-main" text="Produits">
+                     <content>
+                        <AnchorPane focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="1300.0">
+                           <children>
+                              <TableView fx:id="tabProd" layoutX="283.0" layoutY="187.0" prefHeight="396.0" prefWidth="834.0" style="-fx-background-color: #03bdd4;">
+                                 <columns>
+                                    <TableColumn fx:id="col_nomp" prefWidth="222.0" text="Nom" />
+                                    <TableColumn fx:id="col_phop" prefWidth="171.0" text="Photo" />
+                                    <TableColumn fx:id="col_des" prefWidth="138.0" text="Description" />
+                                    <TableColumn fx:id="col_dispop" prefWidth="155.0" text="Quantite" />
+                                    <TableColumn fx:id="col_prixp" prefWidth="147.0" text="Prix" />
+                                 </columns>
+                              </TableView>
+                              <JFXButton layoutX="14.0" layoutY="160.0" onAction="#homee" prefHeight="32.0" prefWidth="196.0" style="-fx-background-color: #03bdd4;" styleClass="btn_workbench11" stylesheets="@../../../../../../../Desktop/ouma/src/gui/style.css" text="Home" textFill="#c6b6b6">
+                                 <graphic>
+                                    <ImageView fitHeight="40.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../main/resources/images/home.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="btnstat" layoutX="14.0" layoutY="235.0" onAction="#statistique" prefHeight="32.0" prefWidth="196.0" style="-fx-background-color: #03bdd4;" styleClass="btn_workbench11" stylesheets="@../../../../../../../Desktop/ouma/src/gui/style.css" text="Statistiques" textFill="#c6b6b6">
+                                 <graphic>
+                                    <ImageView fitHeight="40.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../main/resources/images/statis.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="13.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="pdf" layoutX="14.0" layoutY="310.0" onAction="#extPDF" prefHeight="32.0" prefWidth="196.0" style="-fx-background-color: #03bdd4;" styleClass="btn_workbench11" stylesheets="@../../../../../../../Desktop/ouma/src/gui/style.css" text="Imprimer" textFill="#c6b6b6">
+                                 <graphic>
+                                    <ImageView fitHeight="40.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../main/resources/images/imprimer.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="13.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="actualiseP" layoutX="14.0" layoutY="385.0" onAction="#refreshP" prefHeight="32.0" prefWidth="196.0" style="-fx-background-color: #03bdd4;" styleClass="btn_workbench11" stylesheets="@../../../../../../../Desktop/ouma/src/gui/style.css" text="Actualiser" textFill="#c6b6b6">
+                                 <graphic>
+                                    <ImageView fitHeight="40.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../main/resources/images/actuliser.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="13.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="btnquitterpn" layoutX="14.0" layoutY="466.0" onAction="#Quitterpanier" prefHeight="32.0" prefWidth="196.0" style="-fx-background-color: #03bdd4;" styleClass="btn_workbench11" stylesheets="@../../../../../../../Desktop/ouma/src/gui/style.css" text="Quitter" textFill="#c6b6b6">
+                                 <graphic>
+                                    <ImageView fitHeight="40.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../../../../main/resources/images/quitter.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="13.0" />
+                                 </font>
+                              </JFXButton>
+                              <TextField fx:id="serch" layoutX="585.0" layoutY="69.0" prefHeight="31.0" prefWidth="254.0" promptText="Search" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+               </tabs>
+            </JFXTabPane>
+         </center>
+      </BorderPane>
+   </children>
+</StackPane>

@@ -55,7 +55,7 @@ public void modifier(Appointment t) {
                 + "new_old='" + t.getNew_old()+ "', "
                 + "procedure='" + t.getAppointmentprocedure() + "', "
                 + "appointmentdate='" + t.getAppointmentdate() + "', "
-                + "appointmenttime='" + java.sql.Time.valueOf(t.getAppointmentime()) + "', "
+                + "appointmenttime='" + t.getAppointmentime() + "', "
                 + "type='" + t.getType() + "', "
                 + "lien='" + t.getLien() + "', "
                 + "status='" + t.getStatus() + "' "
@@ -106,6 +106,7 @@ public List<Appointment> afficher() {
             appointment.setAppointmentprocedure(rs.getString("appointmentprocedure"));
             appointment.setAppointmentdate(rs.getDate("appointmentdate").toLocalDate());
             appointment.setAppointmentime(rs.getTime("appointmentime").toLocalTime());
+            appointment.setId_user(rs.getInt("id_patient_id"));
             appointment.setType(rs.getString("type"));
             appointment.setLien(rs.getString("lien"));
             appointment.setStatus(rs.getString("status"));

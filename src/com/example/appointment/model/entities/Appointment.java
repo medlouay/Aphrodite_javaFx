@@ -20,14 +20,12 @@ public class Appointment {
     private LocalTime appointmentime;
     private String type;
     private String lien;
-    private String status;
+      private String status;
     //relation
     private FichePatient fichePatient;
+    private Integer id_user;
 
-    public Appointment() {
-    }
-
-    public Appointment(Integer id, String name, String lastname, LocalDate birthday, String gender, String phonenumber, String email, String new_old, String appointmentprocedure, LocalDate appointmentdate, LocalTime appointmentime, String type, String lien, String status, FichePatient fichePatient) {
+    public Appointment(Integer id, String name, String lastname, LocalDate birthday, String gender, String phonenumber, String email, String new_old, String appointmentprocedure, LocalDate appointmentdate, LocalTime appointmentime, String type, String lien, String status, Integer id_user) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
@@ -41,9 +39,41 @@ public class Appointment {
         this.appointmentime = appointmentime;
         this.type = type;
         this.lien = lien;
-        this.status = "pending";
-        this.fichePatient = fichePatient;
+        this.status = status;
+        this.id_user = id_user;
     }
+
+    public Appointment(String name, String lastname, LocalDate birthday, String gender, String phonenumber, String email, String new_old, String appointmentprocedure, LocalDate appointmentdate, LocalTime appointmentime, String type, String lien, String status, Integer id_user) {
+        this.name = name;
+        this.lastname = lastname;
+        this.birthday = birthday;
+        this.gender = gender;
+        this.phonenumber = phonenumber;
+        this.email = email;
+        this.new_old = new_old;
+        this.appointmentprocedure = appointmentprocedure;
+        this.appointmentdate = appointmentdate;
+        this.appointmentime = appointmentime;
+        this.type = type;
+        this.lien = lien;
+        this.status = status;
+        this.id_user = id_user;
+    }
+
+    public Integer getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(Integer id_user) {
+        this.id_user = id_user;
+    }
+  
+
+    public Appointment() {
+    }
+
+
+    
 
     public Integer getId() {
         return id;
@@ -180,22 +210,8 @@ public class Appointment {
 
     @Override
     public String toString() {
-        return "Appointment{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", birthday=" + birthday +
-                ", gender='" + gender + '\'' +
-                ", phonenumber='" + phonenumber + '\'' +
-                ", email='" + email + '\'' +
-                ", new_old='" + new_old + '\'' +
-                ", appointmentprocedure='" + appointmentprocedure + '\'' +
-                ", appointmentdate=" + appointmentdate +
-                ", appointmentime=" + appointmentime +
-                ", type='" + type + '\'' +
-                ", lien='" + lien + '\'' +
-                ", status='" + status + '\'' +
-                ", fichePatient=" + fichePatient +
-                '}';
+        return "Appointment{" + "id=" + id + ", name=" + name + ", lastname=" + lastname + ", birthday=" + birthday + ", gender=" + gender + ", phonenumber=" + phonenumber + ", email=" + email + ", new_old=" + new_old + ", appointmentprocedure=" + appointmentprocedure + ", appointmentdate=" + appointmentdate + ", appointmentime=" + appointmentime + ", type=" + type + ", lien=" + lien + ", id_user=" + id_user + ", status=" + status + ", fichePatient=" + fichePatient + '}';
     }
+
+    
 }

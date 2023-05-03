@@ -8,12 +8,19 @@ import com.example.appointment.DB.DatabaseHandler;
 import com.example.appointment.model.entities.User;
 import java.io.StringReader;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
+import javax.json.Json;
+import javax.json.JsonArray;
+import javax.json.JsonException;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
+import javax.json.JsonStructure;
+import javax.json.JsonValue.ValueType;
 
 /**
  *
@@ -26,10 +33,10 @@ public class UserService implements IService<User> {
     @Override
     public void ajouter(User user) {
         
-   // String roleString = setRole(user);
+    String roleString = setRole(user);
 
     String req = "INSERT INTO user (full_name, username, email, password, roles) "
-        + "VALUES ('" + user.getFullName() + "','" + user.getUsername() + "','" + user.getEmail() + "','" + user.getPassword()+ "','ROLE_ADMIN')";
+        + "VALUES ('" + user.getFullName() + "','" + user.getUsername() + "','" + user.getEmail() + "','" + user.getPassword()+ "','" +roleString + "')";
         try {
             Statement st = cnx.createStatement();
             st.executeUpdate(req);
@@ -38,7 +45,7 @@ public class UserService implements IService<User> {
             System.out.println(ex.getMessage());
         }
     }
-/*
+
     private String setRole(User user) {
         String role;
         if (user.isAdmin()) {
@@ -72,7 +79,7 @@ public class UserService implements IService<User> {
         // The JSON structure is not valid
         throw new JsonException("Invalid JSON structure");
     }
-}*/
+}
 
 
 
@@ -115,7 +122,7 @@ public class UserService implements IService<User> {
                 user.setUsername(resultSet.getString("username"));
                 user.setEmail(resultSet.getString("email"));
                 user.setPassword(resultSet.getString("password"));
-                user.setIsAdmin(resultSet.getString("roles")=="ROLE_ADMIN");
+                user.setIsAdmin(isUserAdmin(resultSet.getString("roles")));
                 userList.add(user);
             }
         } catch (SQLException ex) {
@@ -124,4 +131,85 @@ public class UserService implements IService<User> {
 
         return userList;
     }
+
+    public boolean validate(String Uname , String Upassword) {
+         
+        String vd = "SELECT * FROM user WHERE Username= ? and Password= ?";
+        try {
+        PreparedStatement pst = cnx.prepareStatement(vd);
+            pst.setString(1,Uname);
+            pst.setString(2, Upassword);
+            ResultSet resultSet = pst.executeQuery();
+            if (resultSet.next()) {
+                return true;
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return false ;
+    }
+        public String check(String Uname , String Upassword) {
+         
+        String vd = "SELECT * FROM user WHERE Username= ? and Password= ?";
+        try {
+        PreparedStatement pst = cnx.prepareStatement(vd);
+            pst.setString(1,Uname);
+            pst.setString(2, Upassword);
+            ResultSet resultSet = pst.executeQuery();
+            if (resultSet.next()) {
+                if (resultSet.getString("roles")=="[\"ROLE_ADMIN\"]")
+                return "Admin";
+            }else{
+                return "User";
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return "[\"ROLE_ADMIN\"]" ;
+    }
+        
+        
+        
+        
+                public User GetUser(String Uname , String Upassword) {
+         
+        String vd = "SELECT * FROM user WHERE Username= ? and Password= ?";
+        try {
+        PreparedStatement pst = cnx.prepareStatement(vd);
+            pst.setString(1,Uname);
+            pst.setString(2, Upassword);
+            ResultSet resultSet = pst.executeQuery();
+            while (resultSet.next()) {
+                User user = new User();
+                user.setId(resultSet.getInt("id"));
+                user.setFullName(resultSet.getString("full_name"));
+                user.setUsername(resultSet.getString("username"));
+                user.setEmail(resultSet.getString("email"));
+                user.setPassword(resultSet.getString("password"));
+                user.setIsAdmin(isUserAdmin(resultSet.getString("roles")));
+                 return user;
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        return null ;
+    }
+                        public String getUserById(int AuthId){
+        String res ;
+                try {
+            Statement statement = cnx.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM user Where id=" +AuthId );
+
+            while (resultSet.next()) {
+
+                return resultSet.getString("full_name");
+         
+            }
+        } catch (SQLException ex) {
+            System.out.println("Error while fetching users from database: " + ex.getMessage());
+        }
+
+        return "rubbish";
+        
+        }
 }
