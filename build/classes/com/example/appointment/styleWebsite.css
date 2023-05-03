@@ -1,0 +1,70 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 30 avr. 2023, 00:58:01
+    Author     : Lou
+name : styleWebsite.css
+*/
+
+/* Set the font for the entire page */
+/* Set the default font for the entire application */
+* {
+    -fx-font-family: "Helvetica Neue", sans-serif;
+}
+
+/* Style the top-level BorderPane */
+.border-pane {
+    -fx-background-color: #f8f8f8;
+}
+
+/* Style the navigation buttons */
+.button {
+    -fx-background-color: #4a86c8;
+    -fx-background-radius: 0;
+    -fx-border-width: 0;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-padding: 12px 24px;
+}
+
+/* Style the search field */
+.text-field {
+    -fx-background-color: white;
+    -fx-background-radius: 4px;
+    -fx-border-radius: 4px;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1px;
+    -fx-padding: 6px;
+}
+
+/* Style the scroll pane */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-padding: 24px;
+}
+
+/* Style the labels */
+.label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4a4a4a;
+}
+
+/* Style the paragraph text */
+.paragraph {
+    -fx-font-size: 16px;
+    -fx-text-fill: #4a4a4a;
+    -fx-line-spacing: 1.5em;
+}
+
+/* Style the footer */
+.bottom {
+    -fx-background-color: #eee;
+    -fx-padding: 12px;
+    -fx-alignment: center;
+    -fx-font-size: 14px;
+}
+
+

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane prefHeight="685.0" prefWidth="1282.0" stylesheets="@../utils/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.UI.Admin.ViewMoreController">
+   <children>
+      <HBox prefHeight="688.0" prefWidth="1282.0">
+         <children>
+            <VBox prefHeight="688.0" prefWidth="678.0">
+               <children>
+                  <HBox prefHeight="54.0" prefWidth="570.0">
+                     <children>
+                        <JFXButton onAction="#handleReturn" prefHeight="25.0" prefWidth="26.0" styleClass="Addbtn" text="&lt;">
+                           <font>
+                              <Font name="System Bold Italic" size="25.0" />
+                           </font>
+                        </JFXButton>
+                        <Pane prefHeight="54.0" prefWidth="501.0" HBox.hgrow="NEVER" />
+                        <JFXButton fx:id="AddComment" onAction="#handleAddComments" prefHeight="47.0" prefWidth="121.0" styleClass="Addbtn" text="Add Comment">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="80.0" prefWidth="680.0">
+                     <children>
+                        <Label prefHeight="0.0" prefWidth="32.0" text="Title:" />
+                        <JFXTextField fx:id="titleTextField" alignment="CENTER" editable="false" focusColor="#fa2c56" prefHeight="45.0" prefWidth="612.0" styleClass="texto" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="73.0" prefWidth="678.0">
+                     <children>
+                        <Label text="Slug:" />
+                        <JFXTextField fx:id="slugTextField" alignment="CENTER" editable="false" focusColor="#fa2c56" prefHeight="39.0" prefWidth="608.0" styleClass="texto" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="71.0" prefWidth="680.0">
+                     <children>
+                        <Label text="Summary:" />
+                        <JFXTextField fx:id="summaryTextArea" alignment="CENTER" editable="false" focusColor="#fa2c56" prefHeight="39.0" prefWidth="595.0" styleClass="texto" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="362.0" prefWidth="680.0">
+                     <children>
+                        <Label text="Content:" />
+                        <JFXTextArea fx:id="contentTextArea" editable="false" focusColor="#fa2c56" prefHeight="344.0" prefWidth="621.0" styleClass="texto" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="67.0" prefWidth="680.0">
+                     <children>
+                        <Label text="Published At :" />
+                        <JFXTextField fx:id="publishedCol" alignment="CENTER" editable="false" focusColor="#fa2c56" prefHeight="39.0" prefWidth="602.0" styleClass="texto" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="77.0" prefWidth="680.0">
+                     <children>
+                        <JFXButton fx:id="SComment" onAction="#HandleShowComments" prefHeight="39.0" prefWidth="121.0" styleClass="Addbtn" text="Comments">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <WebView fx:id="WebRes" prefHeight="688.0" prefWidth="611.0" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

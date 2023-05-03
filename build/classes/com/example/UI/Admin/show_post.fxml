@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+
+<StackPane fx:id="rootPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.UI.Admin.ShowAllPostController">
+   <children>
+      <Pane fx:id="contentPane">
+         <children>
+             <TableView fx:id="tableView" layoutY="49.0" prefHeight="558.0" prefWidth="1034.0">
+         
+                                <columns>
+                     <TableColumn fx:id="titleColumn" prefWidth="123.0" text="Title" />
+                  <TableColumn fx:id="author_idCol" prefWidth="135.0" text="Author Name" />
+                     <TableColumn fx:id="slugColumn" prefWidth="117.0" text="Slug" />
+                     <TableColumn fx:id="summaryColumn" prefWidth="166.0" text="Summary" />
+                     <TableColumn fx:id="contentColumn" prefWidth="491.0" text="Content" />
+         
+                                </columns>
+               <contextMenu>
+                  <ContextMenu>
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleRefresh" text="Refresh" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleViewmore" text="View More About it" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleComment" text="Comment" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleViewComment" text="View Comments" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleEdit" text="Edit" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleDelete" text="Delete" />
+                     </items>
+                     <styleClass>
+                        <String fx:value="table-context" />
+                        <String fx:value="colored-context-menu" />
+                     </styleClass>
+                  </ContextMenu>
+               </contextMenu>
+             </TableView>
+            <JFXTextField fx:id="Search" labelFloat="true" layoutX="321.0" prefHeight="42.0" prefWidth="339.0" promptText="Search" />
+            <JFXButton onAction="#goToAddPostScreen" prefHeight="42.0" prefWidth="88.0" text="Add Post" textFill="#904e4e">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="950.0" onAction="#PrintTable" prefHeight="42.0" prefWidth="88.0" text="Imprimer" textFill="#904e4e">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+   </children>
+</StackPane>

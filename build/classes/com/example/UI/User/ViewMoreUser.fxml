@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+<?import org.controlsfx.control.Rating?>
+
+<AnchorPane id="AnchorPane" prefHeight="1300.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.UI.User.ViewMoreUserController">
+   <children>
+      <ScrollPane layoutX="-11.0" layoutY="-3.0" pannable="true" prefHeight="785.0" prefWidth="822.0">
+        <content>
+          <AnchorPane prefHeight="1354.0" prefWidth="806.0">
+               <children>
+                  <WebView fx:id="Content" layoutX="11.0" prefHeight="522.0" prefWidth="791.0" />
+                  <StackPane fx:id="AddComent" focusTraversable="true" layoutY="522.0" prefHeight="301.0" prefWidth="803.0" />
+                  <StackPane fx:id="Comments" layoutX="-4.0" layoutY="829.0" prefHeight="523.0" prefWidth="809.0">
+                     <children>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" prefWidth="1300.0">
+                           <content>
+                              <GridPane fx:id="PlacesGrid" focusTraversable="true" styleClass="dark-background">
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </StackPane>
+                  <Rating fx:id="PageRate" disable="true" layoutX="608.0" layoutY="8.0" opacity="0.88" partialRating="true" rating="0.0" />
+                  <JFXButton fx:id="btnQR" layoutX="696.0" layoutY="50.0" opacity="0.68" prefHeight="42.0" prefWidth="96.0" styleClass="Addbtn" stylesheets="@../utils/Style.css" text="QR CODE" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <JFXButton fx:id="btnRet" layoutX="24.0" layoutY="24.0" onAction="#ReturnTO" opacity="0.68" prefHeight="44.0" prefWidth="54.0" styleClass="Addbtn" stylesheets="@../utils/Style.css" text="&lt;">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

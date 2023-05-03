@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.Rating?>
+
+<StackPane fx:id="rootPane" prefHeight="359.0" prefWidth="800.0" stylesheets="@../utils/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.UI.User.Add_commentUserController">
+   <children>
+      <AnchorPane fx:id="mainContainer" prefHeight="343.0" prefWidth="800.0" stylesheets="@../utils/Style.css">
+         <children>
+            <JFXTextArea fx:id="Comment" focusColor="#fa2c56" layoutX="14.0" layoutY="57.0" prefHeight="246.0" prefWidth="651.0" promptText="Write your Comment here" styleClass="texto">
+               <font>
+                  <Font name="System Bold Italic" size="26.0" />
+               </font>
+            </JFXTextArea>
+            <JFXButton layoutX="665.0" layoutY="256.0" onAction="#HandleAddComment" prefHeight="53.0" prefWidth="135.0" styleClass="Addbtn" stylesheets="@../utils/Style.css" text="Add Comment">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </JFXButton>
+            <Rating fx:id="rateMe" layoutX="6.0" layoutY="14.0" prefHeight="29.0" prefWidth="176.0" rating="0.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

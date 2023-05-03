@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.HTMLEditor?>
+<?import javafx.scene.web.WebView?>
+
+<StackPane fx:id="rootPane" prefHeight="756.0" prefWidth="1279.0" stylesheets="@../utils/Style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.UI.Admin.AddPostController">
+   <children>
+      <AnchorPane fx:id="mainContainer" prefHeight="756.0" prefWidth="1018.0">
+          <VBox alignment="CENTER" prefHeight="756.0" prefWidth="712.0" spacing="10">
+              <Label style="-fx-font-size: 20pt;" text="Add Post" />
+      
+                                   <HBox alignment="CENTER" prefHeight="66.0" prefWidth="882.0" spacing="10">
+               <JFXTextField fx:id="titleTextField" labelFloat="true" prefHeight="25.0" prefWidth="474.0" promptText="Title">
+                  <font>
+                     <Font size="18.0" />
+                  </font>
+               </JFXTextField>
+              </HBox>
+      
+                           
+              <HBox alignment="CENTER" prefHeight="66.0" prefWidth="882.0" spacing="10">
+               <JFXTextField fx:id="slugTextField" labelFloat="true" prefHeight="25.0" prefWidth="474.0" promptText="Slug">
+                  <font>
+                     <Font size="18.0" />
+                  </font>
+               </JFXTextField>
+              </HBox>
+      
+                                   <HBox alignment="CENTER" prefHeight="66.0" prefWidth="882.0" spacing="10">
+               <JFXTextField fx:id="summaryTextArea" labelFloat="true" prefHeight="25.0" prefWidth="474.0" promptText="Summary">
+                  <font>
+                     <Font size="18.0" />
+                  </font>
+               </JFXTextField>
+              </HBox>
+      
+                                   <HBox alignment="CENTER" prefHeight="327.0" prefWidth="712.0" spacing="10">
+               <HTMLEditor fx:id="htmlEdit" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" prefHeight="257.0" prefWidth="726.0" />
+              </HBox>
+            <HBox alignment="CENTER" prefHeight="54.0" prefWidth="712.0" spacing="10">
+               <children>
+                  <JFXButton onAction="#testit" styleClass="Addbtn" text="test it">
+                     <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <ComboBox fx:id="PostTags" prefHeight="50.0" prefWidth="205.0" promptText="Tags" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="62.0" prefWidth="712.0">
+               <children>
+                  <JFXButton fx:id="addButton" onAction="#handleAddOperation" prefHeight="54.0" prefWidth="153.0" styleClass="Addbtn" text="Add Post">
+                     <font>
+                        <Font name="System Bold Italic" size="25.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </HBox>
+          </VBox>
+         <JFXButton layoutX="22.0" layoutY="24.0" onAction="#handleReturn" prefHeight="42.0" prefWidth="52.0" styleClass="Addbtn" text="&lt;">
+            <font>
+               <Font name="System Bold Italic" size="25.0" />
+            </font>
+         </JFXButton>
+         <WebView fx:id="WebRes" layoutX="712.0" layoutY="32.0" prefHeight="688.0" prefWidth="559.0" />
+      </AnchorPane>
+   </children>
+</StackPane>

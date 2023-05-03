@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTimePicker?>
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<Pane focusTraversable="true" style="-fx-background-color: #EAEEF4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.UI.Admin.Tableau1">
+   <children>
+      <TabPane layoutY="54.0" prefHeight="750.0" prefWidth="1052.0" stylesheets="@../../../../../../Desktop/Pidev-nasr/src/roadrevel/resources/dark-theme.css" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Appointmnt  ">
+               <content>
+                  <TableView fx:id="tableView" prefHeight="765.0" prefWidth="1057.0">
+                    <columns>
+                      <TableColumn fx:id="tableColumnName" prefWidth="75.0" text="name" />
+                        <TableColumn fx:id="tableColumnlastname" prefWidth="75.0" text="last name" />
+                        <TableColumn fx:id="tableColumnDOB" prefWidth="75.0" text="birthday" />
+                        <TableColumn fx:id="tableColumnGender" prefWidth="101.0" text="gender" />
+                        <TableColumn fx:id="tableColumnPhone" prefWidth="112.0" text="phone number" />
+                        <TableColumn fx:id="tableColumnEmail" prefWidth="92.0" text="email" />
+                        <TableColumn fx:id="tableColumnNewOld" prefWidth="95.0" text="new_old" />
+                        <TableColumn fx:id="tableColumnProced" prefWidth="97.0" text="procedure" />
+                        <TableColumn fx:id="tableColumnDate" prefWidth="100.0" text="date" />
+                        <TableColumn fx:id="tableColumnTime" prefWidth="118.0" text="time" />
+                        <TableColumn fx:id="tableColumnStatus" prefWidth="112.0" text="status" />
+                    </columns>
+                     <contextMenu>
+                        <ContextMenu>
+                           <items>
+                              <MenuItem mnemonicParsing="false" onAction="#handleRefresh" text="Refresh" />
+                              <MenuItem mnemonicParsing="false" onAction="#handlePlaceDelete" text="Delete" />
+                           </items>
+                           <styleClass>
+                              <String fx:value="table-context" />
+                              <String fx:value="colored-context-menu" />
+                           </styleClass>
+                        </ContextMenu>
+                     </contextMenu>
+                  </TableView>
+               </content>
+            </Tab>
+            <Tab text="Add Appointmnt">
+               <content>
+                  <VBox alignment="CENTER" focusTraversable="true" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="662.0" prefWidth="1052.0" VBox.vgrow="ALWAYS">
+                           <content>
+                              <AnchorPane fx:id="labelDOB" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="869.0" prefWidth="1028.0">
+                                 <children>
+                                    <JFXTextField fx:id="labelName" labelFloat="true" layoutX="169.0" layoutY="60.0" promptText="first name" />
+                                    <JFXTextField fx:id="labelLastName" labelFloat="true" layoutX="471.0" layoutY="60.0" promptText="last name " />
+                                    <JFXTimePicker fx:id="labelTime" layoutX="453.0" layoutY="145.0" promptText="time" />
+                                    <JFXDatePicker fx:id="birthdayDate" layoutX="758.0" layoutY="60.0" promptText="birthday" />
+                                    <JFXDatePicker fx:id="labelDate" layoutX="169.0" layoutY="145.0" promptText="date" />
+                                    <JFXTextField fx:id="labelPhone" labelFloat="true" layoutX="169.0" layoutY="231.0" promptText="Phone Number" />
+                                    <JFXTextField fx:id="labelEmail" labelFloat="true" layoutX="461.0" layoutY="231.0" promptText="email" />
+                                    <JFXTextField fx:id="labelNewOld" labelFloat="true" layoutX="756.0" layoutY="231.0" promptText="new old" />
+                                    <JFXTextField fx:id="labelLien" labelFloat="true" layoutX="630.0" layoutY="572.0" promptText="lien" />
+                                    <JFXButton fx:id="SubmitBtn" layoutX="427.0" layoutY="622.0" onAction="#handleAdd" prefHeight="69.0" prefWidth="203.0" text="Submit" />
+                                    <JFXComboBox fx:id="Gendercombo" layoutX="758.0" layoutY="145.0" prefHeight="31.0" prefWidth="164.0" promptText="Gender" />
+                                    <JFXComboBox fx:id="Typecombo" layoutX="215.0" layoutY="572.0" prefHeight="31.0" prefWidth="145.0" promptText="Type" />
+                                    <JFXTextArea fx:id="procedureLabel" labelFloat="true" layoutX="169.0" layoutY="291.0" prefHeight="254.0" prefWidth="773.0" promptText="Procedure">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </JFXTextArea>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <JFXButton buttonType="RAISED" layoutX="900.0" layoutY="14.0" onAction="#extPDF" styleClass="inner_pane" text="imprimer">
+         <ripplerFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#cd5050" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </ripplerFill>
+         <stylesheets>
+            <URL value="@style.css" />
+            <URL value="@style.css" />
+         </stylesheets>
+      </JFXButton>
+   </children>
+</Pane>
