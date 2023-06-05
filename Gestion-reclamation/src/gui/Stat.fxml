@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="645.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.StatController_1">
+   <children>
+      <PieChart fx:id="chart" layoutX="157.0" layoutY="92.0" prefHeight="399.0" prefWidth="286.0" />
+      <VBox layoutY="6.0" prefHeight="646.0" prefWidth="131.0">
+         <children>
+            <Button fx:id="blog" mnemonicParsing="false" onAction="#blog" prefHeight="50.0" prefWidth="134.0" text="Blog" />
+            <Button fx:id="rep" mnemonicParsing="false" onAction="#reponse" prefHeight="50.0" prefWidth="134.0" text="Reponse" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

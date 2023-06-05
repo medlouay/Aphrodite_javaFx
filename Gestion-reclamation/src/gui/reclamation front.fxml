@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="filsP" prefHeight="696.0" prefWidth="902.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ReclamationFrontController">
+   <children>
+      <AnchorPane layoutY="-8.0" prefHeight="696.0" prefWidth="903.0" style="-fx-background-color: #f8ebb8;">
+         <children>
+            <TextField fx:id="descTF" layoutX="446.0" layoutY="418.0" prefHeight="26.0" prefWidth="150.0" style="-fx-border-color: #24370e;" />
+            <Label layoutX="346.0" layoutY="292.0" prefHeight="18.0" prefWidth="62.0" text="Titre">
+               <font>
+                  <Font name="Britannic Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="341.0" layoutY="340.0" text="Message">
+               <font>
+                  <Font name="Britannic Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="338.0" layoutY="425.0" text="Description">
+               <font>
+                  <Font name="Britannic Bold" size="18.0" />
+               </font>
+            </Label>
+            <AnchorPane prefHeight="714.0" prefWidth="218.0" style="-fx-background-color: #24370e;">
+               <children>
+                  <Button fx:id="btnajoutP" layoutX="1.0" layoutY="415.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="31.0" prefWidth="218.0" style="-fx-background-color: #24370e; -fx-border-color: #f8ebb8;" text="Ajouter" textFill="#f8ebb8">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="actualiseP" layoutX="1.0" layoutY="546.0" mnemonicParsing="false" onAction="#refreshP" prefHeight="31.0" prefWidth="218.0" style="-fx-background-color: #24370e; -fx-border-color: #f8ebb8;" text="Actualiser" textFill="#f8ebb8">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnquitterpn" layoutX="1.0" layoutY="606.0" mnemonicParsing="false" onAction="#Quitterpanier" prefHeight="31.0" prefWidth="218.0" style="-fx-background-color: #24370e; -fx-border-color: #f8ebb8;" text="Quitter" textFill="#f8ebb8">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="-3.0" layoutY="189.0" mnemonicParsing="false" onAction="#homee" prefHeight="34.0" prefWidth="218.0" style="-fx-background-color: #24370e; -fx-border-color: #f8ebb8;" text="Home" textFill="#f8ebb8">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <TextField fx:id="titreTF" layoutX="446.0" layoutY="288.0" prefHeight="27.0" prefWidth="150.0" style="-fx-border-color: #24370e;" />
+            <TextField fx:id="messageTF" layoutX="444.0" layoutY="336.0" prefHeight="76.0" prefWidth="252.0" style="-fx-border-color: #24370e;" />
+            <Text fill="#24370e" fontSmoothingType="LCD" layoutX="234.0" layoutY="75.0" stroke="#24370e" strokeType="OUTSIDE" strokeWidth="0.0" text="Ecrire votre Réclamation" textAlignment="CENTER" wrappingWidth="321.13671875">
+               <font>
+                  <Font name="Britannic Bold" size="50.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Text>
+            <ComboBox fx:id="user_comboBox" layoutX="449.0" layoutY="213.0" prefHeight="26.0" prefWidth="143.0" style="-fx-border-color: #24370e;" />
+            <Label layoutX="344.0" layoutY="221.0" prefHeight="18.0" prefWidth="92.0" text="ID Patient">
+               <font>
+                  <Font name="Britannic Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
