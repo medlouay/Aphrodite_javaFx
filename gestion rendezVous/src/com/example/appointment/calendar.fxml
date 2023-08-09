@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+<?import org.controlsfx.control.StatusBar?>
+<?import org.controlsfx.control.ToggleSwitch?>
+<?import com.calendarfx.view.CalendarView?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+    <center>
+        <CalendarView fx:id="calendarView" />
+    </center>
+    <bottom>
+        <StatusBar>
+            <left>
+                <ToggleSwitch fx:id="switchMonthTimeline" text="Month/Timeline" />
+            </left>
+        </StatusBar>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="hezzz" prefHeight="804.0" prefWidth="1052.0" style="-fx-background-color: #EAEEF4;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <JFXButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" layoutX="864.0" layoutY="19.0" prefHeight="42.0" prefWidth="56.0" style="-fx-background-color: #EAEEF4;" />
+      <Pane fx:id="pane_1" layoutX="48.0" layoutY="61.0" prefHeight="234.0" prefWidth="146.0" styleClass="pane_1" stylesheets="@style.css">
+         <children>
+            <Label layoutX="14.0" layoutY="27.0" text="510" textFill="#f8f8f8">
+               <font>
+                  <Font name="Century Gothic Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="75.0" text="Go On" textFill="#f8f8f8">
+               <font>
+                  <Font name="Century Gothic" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="38.0" layoutY="175.0" text="Finish" textFill="#b5aaaa">
+               <font>
+                  <Font name="Century Gothic" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="78.0" layoutY="175.0" text="100%" textFill="#ebeaea">
+               <font>
+                  <Font name="Century Gothic" size="13.0" />
+               </font>
+            </Label>
+            <ProgressBar layoutX="6.0" layoutY="200.0" opacity="0.54" prefHeight="16.0" prefWidth="134.0" progress="0.89" />
+         </children>
+      </Pane>
+      <Pane fx:id="pane_11" layoutX="216.0" layoutY="61.0" prefHeight="234.0" prefWidth="146.0" stylesheets="@style.css">
+         <children>
+            <Label layoutX="14.0" layoutY="27.0" text="210" textFill="#111010">
+               <font>
+                  <Font name="Century Gothic Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="75.0" text="Intention" textFill="#111010">
+               <font>
+                  <Font name="Century Gothic" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="38.0" layoutY="175.0" text="Finish" textFill="#b5aaaa">
+               <font>
+                  <Font name="Century Gothic" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="78.0" layoutY="175.0" text="100%" textFill="#141313">
+               <font>
+                  <Font name="Century Gothic" size="13.0" />
+               </font>
+            </Label>
+            <ProgressBar fx:id="progress21" layoutX="7.0" layoutY="200.0" opacity="0.55" prefHeight="16.0" prefWidth="134.0" progress="0.87" styleClass="progress" stylesheets="@style.css" />
+         </children>
+         <styleClass>
+            <String fx:value="pane_1" />
+            <String fx:value="pane_11" />
+         </styleClass>
+      </Pane>
+      <Pane fx:id="pane_12" layoutX="380.0" layoutY="61.0" prefHeight="234.0" prefWidth="146.0" styleClass="pane_11" stylesheets="@style.css">
+         <children>
+            <Label layoutX="14.0" layoutY="27.0" text="100" textFill="#282727">
+               <font>
+                  <Font name="Century Gothic Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="75.0" text="No Intention" textFill="#282727">
+               <font>
+                  <Font name="Century Gothic" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="38.0" layoutY="175.0" text="Finish" textFill="#b5aaaa">
+               <font>
+                  <Font name="Century Gothic" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="78.0" layoutY="175.0" text="100%" textFill="#2c2b2b">
+               <font>
+                  <Font name="Century Gothic" size="13.0" />
+               </font>
+            </Label>
+            <ProgressBar fx:id="progress2" layoutX="5.0" layoutY="201.0" opacity="0.55" prefHeight="16.0" prefWidth="134.0" progress="0.87" styleClass="progress" stylesheets="@style.css" />
+         </children>
+      </Pane>
+      <Pane fx:id="pane_111" layoutX="549.0" layoutY="61.0" prefHeight="234.0" prefWidth="146.0" styleClass="pane_111" stylesheets="@style.css">
+         <children>
+            <Label layoutX="14.0" layoutY="27.0" text="510" textFill="#f8f8f8">
+               <font>
+                  <Font name="Century Gothic Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="75.0" text="Go On" textFill="#f8f8f8">
+               <font>
+                  <Font name="Century Gothic" size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="pane_1111" layoutX="707.0" layoutY="61.0" prefHeight="234.0" prefWidth="314.0" styleClass="pane_1111" stylesheets="@style.css">
+         <children>
+            <Label layoutX="14.0" layoutY="27.0" text="1000" textFill="#f8f8f8">
+               <font>
+                  <Font name="Century Gothic Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="75.0" text="Distribution" textFill="#f8f8f8">
+               <font>
+                  <Font name="Century Gothic" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="38.0" layoutY="175.0" text="Finish" textFill="#b5aaaa">
+               <font>
+                  <Font name="Century Gothic" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="78.0" layoutY="175.0" text="100%" textFill="#ebeaea">
+               <font>
+                  <Font name="Century Gothic" size="13.0" />
+               </font>
+            </Label>
+            <ProgressBar fx:id="progress111" layoutX="5.0" layoutY="201.0" prefHeight="16.0" prefWidth="134.0" progress="0.87" styleClass="progress" stylesheets="@style.css" />
+         </children>
+      </Pane>
+      <Label layoutX="848.0" layoutY="19.0" text="Automacally assigned" textFill="#9a9292">
+         <font>
+            <Font name="Century Gothic Bold" size="15.0" />
+         </font>
+      </Label>
+      <Pane fx:id="pane_13" layoutX="63.0" layoutY="333.0" prefHeight="78.0" prefWidth="307.0" styleClass="pane_11" stylesheets="@style.css">
+         <children>
+            <Label layoutX="78.0" layoutY="19.0" text="AIR PLANE" textFill="#323131">
+               <font>
+                  <Font name="Century Gothic Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="78.0" layoutY="44.0" text="Wajid HucYan" textFill="#9a9696">
+               <font>
+                  <Font name="Century Gothic" size="17.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="56.0" fitWidth="50.0" layoutX="12.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/parametre.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="43.0" fitWidth="50.0" layoutX="264.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/parametre.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="pane_131" layoutX="63.0" layoutY="422.0" prefHeight="78.0" prefWidth="307.0" styleClass="pane_11" stylesheets="@style.css">
+         <children>
+            <Label layoutX="78.0" layoutY="19.0" text="TELPHONE" textFill="#323131">
+               <font>
+                  <Font name="Century Gothic Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="78.0" layoutY="44.0" text="Salaar HucYan" textFill="#9a9696">
+               <font>
+                  <Font name="Century Gothic" size="17.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="56.0" fitWidth="50.0" layoutX="12.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/parametre.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="43.0" fitWidth="50.0" layoutX="264.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/parametre.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="pane_1311" layoutX="63.0" layoutY="510.0" prefHeight="78.0" prefWidth="307.0" styleClass="pane_11" stylesheets="@style.css">
+         <children>
+            <Label layoutX="78.0" layoutY="19.0" text="BUS" textFill="#323131">
+               <font>
+                  <Font name="Century Gothic Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="78.0" layoutY="44.0" text="john Edward" textFill="#9a9696">
+               <font>
+                  <Font name="Century Gothic" size="17.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="56.0" fitWidth="50.0" layoutX="12.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/parametre.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="43.0" fitWidth="50.0" layoutX="263.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/parametre.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="pane_132" layoutX="425.0" layoutY="418.0" prefHeight="262.0" prefWidth="596.0" styleClass="pane_11" stylesheets="@style.css">
+         <children>
+            <Label layoutX="32.0" layoutY="48.0" text="Ui Java Company  " textFill="#323131">
+               <font>
+                  <Font name="Century Gothic Bold" size="20.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="196.0" fitWidth="194.0" layoutX="394.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/search.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="60.0" layoutY="106.0" textFill="#323131">
+               <font>
+                  <Font name="Century Gothic Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="87.0" text="Lorem Ipsum has been the industry's standard ">
+               <font>
+                  <Font name="Century Gothic" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="109.0" text="dummy text ever since the 1500s,">
+               <font>
+                  <Font name="Century Gothic" size="15.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="btn_workbench11111" layoutX="32.0" layoutY="195.0" prefHeight="43.0" prefWidth="163.0" styleClass="btn_workbench11" stylesheets="@style.css" text="Unlock" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/parametre.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Century Gothic Bold" size="13.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="43.0" fitWidth="50.0" layoutX="284.0" layoutY="-21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../images/parametre.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</Pane>
